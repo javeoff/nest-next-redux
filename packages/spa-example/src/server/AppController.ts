@@ -2,6 +2,7 @@ import { Controller, Get, Param, Render } from '@nestjs/common';
 import { AppService } from './AppService';
 import { Feature } from '../common/enums/Feature';
 import { IState } from '../common/types/IState';
+import { Page } from 'nest-next-spa/server';
 
 @Controller()
 export class AppController {
@@ -9,8 +10,7 @@ export class AppController {
     private readonly appService: AppService,
   ) {}
 
-  @Get('')
-  @Render('index')
+  @Page('')
   public index(): Partial<IState> {
     const products = this.appService.getProducts();
 
@@ -21,16 +21,14 @@ export class AppController {
     }
   }
 
-  @Get(':productId')
-  @Render(':productId')
+  @Page(':productId')
   public product(
     @Param('productId') productId: string,
   ): Partial<IState> {
-    console.log('prod', productId);
     const product = this.appService.getProduct(productId);
 
     return {
-      [Feature.COMMON]: {
+      [Feature.PRODUCT]: {
         product,
       }
     }

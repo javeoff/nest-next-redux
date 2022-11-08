@@ -2,6 +2,7 @@ import { IRootState, store } from '../common/redux/store';
 import { FC } from 'react';
 import { AppProps } from 'next/app';
 import { NextPage, NextPageContext } from 'next';
+import { getNestNextInitialProps } from 'nest-next-spa';
 import { withHydrateStore } from 'nest-next-redux';
 
 interface IProps {
@@ -15,15 +16,16 @@ export type INestNextApp<
 };
 
 const App: INestNextApp<IProps> = ({ Component, ...props }) => {
+  console.log('sss', props);
   return (
     <Component {...props} />
   )
 }
 
-App.getInitialProps = (context) => {
+App.getInitialProps = getNestNextInitialProps((ctx) => {
   return {
-    pageProps: context.ctx.query
+    serverStore: ctx.query
   }
-}
+})
 
 export default withHydrateStore(App, store);

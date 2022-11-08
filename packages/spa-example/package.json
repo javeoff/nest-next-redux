@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "example2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,10 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nest-next-redux": "*",
     "@nestjs/common": "^9.2.0",
     "@nestjs/core": "^9.2.0",
-    "@nestjs/platform-express": "^9.2.0"
+    "@nestjs/platform-express": "^9.2.0",
+    "nest-next-redux": "*"
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^1.9.0",

@@ -1,0 +1,8 @@
+{
+  "name": "nest-next-redux",
+  "private": true,
+  "main": "../../dist/pkg/index.js",
+  "devDependencies": {
+
+  }
+}
