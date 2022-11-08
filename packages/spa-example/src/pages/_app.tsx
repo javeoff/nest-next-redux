@@ -16,16 +16,11 @@ export type INestNextApp<
 };
 
 const App: INestNextApp<IProps> = ({ Component, ...props }) => {
-  console.log('sss', props);
   return (
     <Component {...props} />
   )
 }
 
-App.getInitialProps = getNestNextInitialProps((ctx) => {
-  return {
-    serverStore: ctx.query
-  }
-})
+App.getInitialProps = getNestNextInitialProps()
 
 export default withHydrateStore(App, store);
